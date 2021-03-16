@@ -68,29 +68,29 @@ export function Home() {
 					<p>{todo.length} pending tasks</p>
 				</div>
 			</div>
-			<div className="row justify-content-start">
-				<div className="col-12">
-					<input
-						type="text"
-						onKeyPress={e => {
-							addTodo(e);
-						}}
-					/>
-				</div>
+
+			<div className="row justify-content-start add">
+				<span className="input-group-text col-2">Add you task</span>
+				<input
+					className="col-10"
+					type="text"
+					onKeyPress={e => {
+						addTodo(e);
+					}}
+				/>
 			</div>
-			<div className="row">
-				<div className="col-4">
-					<ul>
-						{todo.map((value, index) => (
-							<li className="list-group-item" key={index}>
-								{value.label}
-								<button type="button" onClick={event => deleteTodo(index)}>
-									<i className="fas fa-trash-alt" />
-								</button>
-							</li>
-						))}
-					</ul>
-				</div>
+
+			<div className="todolist">
+				<ul>
+					{todo.map((value, index) => (
+						<li className="list-group-item col-11" key={index}>
+							{value.label}
+							<button className="col-1" type="button" onClick={event => deleteTodo(index)}>
+								<i className="fas fa-trash-alt" />
+							</button>
+						</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	);
